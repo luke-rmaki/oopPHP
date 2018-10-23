@@ -22,12 +22,11 @@ class Business {
     }
 
     public function getStaffMembers() {
-        return $this->staff->members();
+        return $this->staff->getMembers();
     }
 }
 
 class Staff {
-
     protected $members = [];
 
     public function __construct($members = []) {
@@ -38,11 +37,10 @@ class Staff {
         $this->members[] = $person;
     }
 
-    public function members() {
+    public function getMembers() {
         return $this->members;
     }
-};
-
+}
 
 $jeffrey = new Person('Jeffrey Way');
 
@@ -52,6 +50,6 @@ $laracasts = new Business($staff);
 
 $laracasts->hire(new Person('Jane Doe'));
 
-echo $laracasts->getStaffMembers();
+var_dump($laracasts->getStaffMembers());
 
 ?>
